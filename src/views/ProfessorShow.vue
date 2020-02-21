@@ -5,24 +5,24 @@
     </h1>
 
     <!-- Project One -->
-    <div v-for="professor in professors" class="row">
+    <div class="row">
       <div class="col-md-1">
         <div style="text-align: center;">Difficulty</div>
         <h1 style="text-align: center; vertical-align: text-top;">
-          {{ professor.difficulty }}
+          {{ professors.difficulty }}
         </h1>
       </div>
       <div class="col-md-10">
-        <h3>{{ professor.title }} {{ professor.name }}</h3>
+        <h3>{{ professors.title }} {{ professors.name }}</h3>
         <p>
           Sample professor review text goes here
         </p>
-        <a class="btn btn-secondary" :href="/professors/ + professor.id">See All Reviews</a>
         <br />
         <br />
         <br />
       </div>
     </div>
+    <a class="btn btn-secondary" href="../">Back To All Reviews</a>
   </div>
 </template>
 
@@ -38,8 +38,9 @@ export default {
     };
   },
   created: function() {
-    axios.get("/professors").then(response => {
+    axios.get("/professors/" + this.$route.params.id).then(response => {
       this.professors = response.data;
+      console.log("professor: ", this.professors);
     });
   },
   methods: {}
