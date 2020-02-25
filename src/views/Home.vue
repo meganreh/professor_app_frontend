@@ -14,9 +14,7 @@
       </div>
       <div class="col-md-10">
         <h3>{{ professor.title }} {{ professor.name }}</h3>
-        <p>
-          Sample professor review text goes here
-        </p>
+
         <a class="btn btn-secondary" :href="/professors/ + professor.id">See All Reviews</a>
         <br />
         <br />

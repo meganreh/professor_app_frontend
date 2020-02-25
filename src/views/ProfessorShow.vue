@@ -14,9 +14,13 @@
       </div>
       <div class="col-md-10">
         <h3>{{ professors.title }} {{ professors.name }}</h3>
-        <p>
-          Sample professor review text goes here
-        </p>
+        <div v-for="review in professors.reviews">
+          <p>
+            Rating: {{ review.rating }}
+            <br />
+            {{ review.text }}
+          </p>
+        </div>
         <br />
         <br />
         <br />
